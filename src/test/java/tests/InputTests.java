@@ -14,7 +14,7 @@ public class InputTests {
     static void beforeAll() {
         Configuration.browserSize = "1920x1080";
         Configuration.baseUrl = "https://demoqa.com";
-        Configuration.pageLoadStrategy = "eager";
+        Configuration.pageLoadStrategy = "eager"; // ускоренная загрузка страницы
 
     }
     @Test
