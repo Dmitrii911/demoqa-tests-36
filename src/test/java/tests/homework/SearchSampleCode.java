@@ -17,19 +17,23 @@ public class SearchSampleCode {
     }
 
     @Test
-    void PracticeForm() {
+    void SearchSampleCodeTest () {
         //   Открыть страницу Selenide в Github
         open("/selenide/selenide");
         //  Перейти в раздел Wiki проекта
         $("#wiki-tab").$(byText("Wiki")).click();
         // Проверить, что в списке страниц (Pages) есть страница SoftAssertions
         $("[data-filterable-for=wiki-pages-filter]").$(".wiki-more-pages-link").$("button").click();
-        $("[data-filterable-for=wiki-pages-filter]").shouldHave(text("SoftAssertions"));
+        $("[data-filterable-for=wiki-pages-filter]")
+                .shouldHave(text("SoftAssertions"));
         // Открыть страницу SoftAssertions
-        $("[data-filterable-for=wiki-pages-filter]").$(byText("SoftAssertions")).click();
+        $("[data-filterable-for=wiki-pages-filter]")
+                .$(byText("SoftAssertions")).click();
         // Проверить что внутри есть пример кода для JUnit5
-        $(".gollum-markdown-content").shouldHave(text("Using JUnit5 extend test class:"));
+        $(".gollum-markdown-content")
+                .shouldHave(text("Using JUnit5 extend test class:"),
 
+              text("@ExtendWith({SoftAssertsExtension.class})"));
 
     }
 }
