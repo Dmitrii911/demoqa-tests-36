@@ -11,14 +11,14 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class InputTests {
     @BeforeAll
-    static void beforeAll() {
+    static void basicBrowserSettings() {
         Configuration.browserSize = "1920x1080";
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.pageLoadStrategy = "eager"; // ускоренная загрузка страницы
 
     }
     @Test
-    void PracticeForm() {
+    void successfulFillFormTest() {
         open("/automation-practice-form");
         //Убираем рекламу
         executeJavaScript("$('footer').remove();");
@@ -50,18 +50,17 @@ public class InputTests {
         // Отправляем форму
         $("#submit").click();
         // Проверяем, что каждый элемент отображён в модальном окне
-        $(".table-responsive").shouldHave(
-                text("Student Name Ivan Ivanov"),
-                text("Student Email Ivanov@ivan.com"),
-                text("Gender Male"),
-                text("Mobile 8965412365"),
-                text("Date of Birth 25 November,1917"),
-                text("Subjects Maths"),
-                text("Hobbies Reading"),
-                text("Picture file.txt"), // Имя загруженного файла
-                text("Address 123 Main St."),
-                text("State and City NCR Delhi")
-        );
+        $(".table-responsive").shouldHave(text("Student Name Ivan Ivanov"));
+        $(".table-responsive").shouldHave(text("Student Email Ivanov@ivan.com"));
+        $(".table-responsive").shouldHave(text("Gender Male"));
+        $(".table-responsive").shouldHave(text("Mobile 8965412365"));
+        $(".table-responsive").shouldHave(text("Date of Birth 25 November,1917"));
+        $(".table-responsive").shouldHave(text("Subjects Maths"));
+        $(".table-responsive").shouldHave(text("Hobbies Reading"));
+        $(".table-responsive").shouldHave(text("Picture file.txt")); // Имя загруженного файла
+        $(".table-responsive").shouldHave(text("Address 123 Main St."));
+        $(".table-responsive").shouldHave(text("State and City NCR Delhi"));
+
 
         // Дополнительно проверяем общий успех отправки формы
         $(".modal-content").shouldHave(text("Thanks for submitting the form"));
