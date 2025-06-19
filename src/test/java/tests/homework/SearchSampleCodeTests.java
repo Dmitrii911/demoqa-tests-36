@@ -31,9 +31,10 @@ public class SearchSampleCodeTests {
                 .$(byText("SoftAssertions")).click();
         // Проверить что внутри есть пример кода для JUnit5
         $(".gollum-markdown-content")
-                .shouldHave(text("Using JUnit5 extend test class:"),
+                .shouldHave(text("Using JUnit5 extend test class:"));
 
-              text("@ExtendWith({SoftAssertsExtension.class})\n" +
+        $(".gollum-markdown-content")
+                .shouldHave(text("@ExtendWith({SoftAssertsExtension.class})\n" +
                       "class Tests {\n" +
                       "  @Test\n" +
                       "  void test() {\n" +
