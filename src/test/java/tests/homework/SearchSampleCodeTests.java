@@ -33,7 +33,17 @@ public class SearchSampleCodeTests {
         $(".gollum-markdown-content")
                 .shouldHave(text("Using JUnit5 extend test class:"),
 
-              text("@ExtendWith({SoftAssertsExtension.class})"));
+              text("@ExtendWith({SoftAssertsExtension.class})\n" +
+                      "class Tests {\n" +
+                      "  @Test\n" +
+                      "  void test() {\n" +
+                      "    Configuration.assertionMode = SOFT;\n" +
+                      "    open(\"page.html\");\n" +
+                      "\n" +
+                      "    $(\"#first\").should(visible).click();\n" +
+                      "    $(\"#second\").should(visible).click();\n" +
+                      "  }\n" +
+                      "}"));
 
     }
 }
