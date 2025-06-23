@@ -20,7 +20,7 @@ public class SearchSampleCodeTests {
     void searchSampleCodeTest () {
         //   Открыть страницу Selenide в Github
         open("/selenide/selenide");
-        //  Перейти в раздел Wiki проекта
+        // Перейти в раздел Wiki проекта
         $("#wiki-tab").$(byText("Wiki")).click();
         // Проверить, что в списке страниц (Pages) есть страница SoftAssertions
         $("[data-filterable-for=wiki-pages-filter]").$(".wiki-more-pages-link").$("button").click();
