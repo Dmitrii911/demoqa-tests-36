@@ -17,7 +17,7 @@ public class SearchSampleCodeTests {
     }
 
     @Test
-    void SearchSampleCodeTest () {
+    void searchSampleCodeTest () {
         //   Открыть страницу Selenide в Github
         open("/selenide/selenide");
         //  Перейти в раздел Wiki проекта
