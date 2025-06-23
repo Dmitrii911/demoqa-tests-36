@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 import org.openqa.selenium.interactions.Actions;
 
 import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.DragAndDropOptions.to;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
@@ -60,9 +61,8 @@ public class Lesson4Test {
         SelenideElement columnA = $("#column-a");
         SelenideElement columnB = $("#column-b");
 
-        // Перетаскивание элемента
-        Actions actions = new Actions(WebDriverRunner.getWebDriver());
-        actions.dragAndDrop(columnA, columnB).perform(); // Используем метод dragAndDrop()
+        // Используем метод dragAndDrop()
+        columnA.dragAndDrop(to(columnB));
 
         // Проверка результата перетаскивания
         columnB.shouldHave(text("A"));
