@@ -32,7 +32,9 @@ public class Lesson4Test {
 
     // Перетаскивание элемента
     Actions actions = new Actions(WebDriverRunner.getWebDriver());
-    actions.moveToElement(columnA).clickAndHold().moveToElement(columnB).release().perform();
+    actions.moveToElement(columnA).clickAndHold().moveToElement(columnB)
+            .release()
+            .perform();
     // actions.dragAndDrop(columnA, columnB).perform(); // Используем метод dragAndDrop()
 
     // Проверка результата перетаскивания
