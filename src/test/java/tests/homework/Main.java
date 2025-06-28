@@ -9,30 +9,30 @@ public class Main {
     double d = 2.8;
 
     //Простые арифметические операции
-        System.out.println("Сумма = " + (a + b));
-        System.out.println("Разница = " + (a - b));
-        System.out.println("Произведение = " + a * b);
-        System.out.println("Целое частное = " +  a / b + "; остаток = "+ a % b);
+        System.out.println("Summa = " + (a + b));
+        System.out.println("Difference = " + (a - b));
+        System.out.println("Work = " + a * b);
+        System.out.println("Whole private = " +  a / b + "; Remainder = "+ a % b);
 
         //Смешанные вычисления
         double result = 0;
         result = (c+d)/d + c*d;
 
-        System.out.println("Результат = " + result);
+        System.out.println("Result = " + result);
 
         //Логические операции
         if (a>b) {
-            System.out.println("1. a действительно больше b");}
+            System.out.println("1. The statement is correct");}
             else {
-            System.out.println("1. Утверждение неверное");}
+            System.out.println("1. The statement is not correct");}
             if (a<=b) {
-                System.out.println("2. a действительно больше b");}
+                System.out.println("2. The statement is correct");}
             else {
-                System.out.println("2. Утверждение неверное");}
+                System.out.println("2. The statement is not correct");}
             if (c==d) {
-                System.out.println("3. Утверждение верное");}
+                System.out.println("3. The statement is correct");}
             else {
-                System.out.println("3. Абра-кадабра");}
+                System.out.println("3. Abra-kadabra");}
 
         //Работа с предельными значениями примитивных типов
         System.out.println(Float.MAX_VALUE); // Максимальная величина float
@@ -45,7 +45,7 @@ public class Main {
         // Переполнение границ double
         double maxDouble = Double.MAX_VALUE;
         double result1 = maxDouble+maxDouble;
-        System.out.println("Результат суммы двух Double.MAX_VALUE = " + result1);
+        System.out.println("Result of the sum Double.MAX_VALUE = " + result1);
         // Infinity бесконечное значение при выходе за границы допустимого диапазона
     };
     }
