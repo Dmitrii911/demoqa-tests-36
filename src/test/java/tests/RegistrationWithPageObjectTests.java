@@ -2,13 +2,14 @@ package tests;
 
 import org.junit.jupiter.api.Test;
 
-public class RegistrationWithPagesObjectsTests extends TestBase {
+public class RegistrationWithPageObjectTests extends TestBase {
 
     @Test
     void successfulFillFormTest() {
         String userName = "Ivan";
 
-        registrationPages.openPage()
+        registrationPage.openPage()
+                .closeAd()
                 .setFirstName(userName)
                 .setLastName("Ivanov")
                 .setEmail("Ivanov@ivan.com")
@@ -22,7 +23,7 @@ public class RegistrationWithPagesObjectsTests extends TestBase {
                 .selectStateAndCity("NCR","Delhi" )
                 .submitForm();
 
-        registrationPages.verifyResultsModalAppears()
+        registrationPage.verifyResultsModalAppears()
                 .verifyResult("Student Name", userName + " Ivanov")
                 .verifyResult("Student Email", "Ivanov@ivan.com")
                 .verifyResult("Gender", "Male")
@@ -39,14 +40,14 @@ public class RegistrationWithPagesObjectsTests extends TestBase {
     void successfulMinFormTest() {
         String userName = "Ivan";
 
-        registrationPages.openPage()
+        registrationPage.openPage()
                 .setFirstName(userName)
                 .setLastName("Ivanov")
                 .setGender("Male")
                 .setNumber("8965412365")
                 .submitForm();
 
-        registrationPages.verifyResultsModalAppears()
+        registrationPage.verifyResultsModalAppears()
                 .verifyResult("Student Name", userName + " Ivanov")
                 .verifyResult("Gender", "Male")
                 .verifyResult("Mobile", "8965412365");
@@ -56,14 +57,14 @@ public class RegistrationWithPagesObjectsTests extends TestBase {
     void negativeMinFormTest() {
         String userName = "Ivan";
 
-        registrationPages.openPage()
+        registrationPage.openPage()
                 .setFirstName(userName)
                 .setLastName("Ivanov")
                 .setGender("Male")
                 .setNumber("")
                 .submitForm();
 
-        registrationPages.verifyResultsModalAppearsNeg();
+        registrationPage.verifyResultsModalAppearsNeg();
     }
 }
 
