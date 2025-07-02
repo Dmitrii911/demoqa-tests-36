@@ -6,12 +6,13 @@ public class RegistrationWithPageObjectTests extends TestBase {
 
     @Test
     void successfulFillFormTest() {
-        String userName = "Ivan";
+        String firstName = "Ivan";
+        String lastName = "Ivanov";
 
         registrationPage.openPage()
                 .closeAd()
-                .setFirstName(userName)
-                .setLastName("Ivanov")
+                .setFirstName(firstName)
+                .setLastName(lastName)
                 .setEmail("Ivanov@ivan.com")
                 .setGender("Male")
                 .setNumber("8965412365")
@@ -24,7 +25,7 @@ public class RegistrationWithPageObjectTests extends TestBase {
                 .submitForm();
 
         registrationPage.verifyResultsModalAppears()
-                .verifyResult("Student Name", userName + " Ivanov")
+                .verifyResult("Student Name", firstName + " Ivanov")
                 .verifyResult("Student Email", "Ivanov@ivan.com")
                 .verifyResult("Gender", "Male")
                 .verifyResult("Mobile", "8965412365")
@@ -38,27 +39,27 @@ public class RegistrationWithPageObjectTests extends TestBase {
 
     @Test
     void successfulMinFormTest() {
-        String userName = "Ivan";
+        String firstName = "Ivan";
 
         registrationPage.openPage()
-                .setFirstName(userName)
+                .setFirstName(firstName)
                 .setLastName("Ivanov")
                 .setGender("Male")
                 .setNumber("8965412365")
                 .submitForm();
 
         registrationPage.verifyResultsModalAppears()
-                .verifyResult("Student Name", userName + " Ivanov")
+                .verifyResult("Student Name", firstName + " Ivanov")
                 .verifyResult("Gender", "Male")
                 .verifyResult("Mobile", "8965412365");
     }
 
     @Test
     void negativeMinFormTest() {
-        String userName = "Ivan";
+        String firstName = "Ivan";
 
         registrationPage.openPage()
-                .setFirstName(userName)
+                .setFirstName(firstName)
                 .setLastName("Ivanov")
                 .setGender("Male")
                 .setNumber("")
