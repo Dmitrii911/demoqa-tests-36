@@ -6,6 +6,7 @@ public class RegistrationWithPageObjectTests extends TestBase {
 
     @Test
     void successfulFillFormTest() {
+
         String firstName = "Ivan";
         String lastName = "Ivanov";
 
