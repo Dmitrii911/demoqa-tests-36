@@ -1,70 +1,75 @@
 package tests;
 
+import static data.TestData.*;
 import org.junit.jupiter.api.Test;
+import pages.RegistrationPage;
 
 public class RegistrationWithPageObjectTests extends TestBase {
+    RegistrationPage registrationPage = new RegistrationPage();
+
 
     @Test
     void successfulFillFormTest() {
-        String userName = "Ivan";
 
         registrationPage.openPage()
                 .closeAd()
-                .setFirstName(userName)
-                .setLastName("Ivanov")
-                .setEmail("Ivanov@ivan.com")
-                .setGender("Male")
-                .setNumber("8965412365")
-                .setBirthDate("25", "November", "1917")
-                .setSubjects("Maths")
-                .setHobbies("Reading")
-                .uploadPicture("file.txt")
-                .setAddress("123 Main St.")
-                .selectStateAndCity("NCR","Delhi" )
+                .setFirstName(firstName)
+                .setLastName(lastName)
+                .setEmail(eMail)
+                .setGender(gender)
+                .setNumber(phoneNumber)
+                .setBirthDate(day, month, year)
+                .setSubjects(subjects)
+                .setHobbies(hobbies)
+                .uploadPicture(file)
+                .setAddress(streetAddress)
+                .selectStateAndCity(state, city)
                 .submitForm();
 
         registrationPage.verifyResultsModalAppears()
-                .verifyResult("Student Name", userName + " Ivanov")
-                .verifyResult("Student Email", "Ivanov@ivan.com")
-                .verifyResult("Gender", "Male")
-                .verifyResult("Mobile", "8965412365")
-                .verifyResult("Date of Birth", "25 November,1917")
-                .verifyResult("Subjects", "Maths")
-                .verifyResult("Hobbies", "Reading")
-                .verifyResult("Picture", "file.txt")
-                .verifyResult("Address", "123 Main St.")
-                .verifyResult("State and City", "NCR Delhi");
+                .verifyResult("Student Name", firstName + " " + lastName)
+                .verifyResult("Student Email", eMail)
+                .verifyResult("Gender", gender)
+                .verifyResult("Mobile", phoneNumber)
+                .verifyResult("Date of Birth", day + " " + month + "," + year)
+                .verifyResult("Subjects", subjects)
+                .verifyResult("Hobbies", hobbies)
+                .verifyResult("Picture", file)
+                .verifyResult("Address", streetAddress)
+                .verifyResult("State and City", state + " " + city);
     }
 
     @Test
     void successfulMinFormTest() {
-        String userName = "Ivan";
 
         registrationPage.openPage()
-                .setFirstName(userName)
-                .setLastName("Ivanov")
-                .setGender("Male")
-                .setNumber("8965412365")
+                .setFirstName(firstName)
+                .setLastName(lastName)
+                .setGender(gender)
+                .setNumber(phoneNumber)
                 .submitForm();
 
         registrationPage.verifyResultsModalAppears()
-                .verifyResult("Student Name", userName + " Ivanov")
-                .verifyResult("Gender", "Male")
-                .verifyResult("Mobile", "8965412365");
+                .verifyResult("Student Name", firstName + " " + lastName)
+                .verifyResult("Gender", gender)
+                .verifyResult("Mobile", phoneNumber);
     }
 
     @Test
     void negativeMinFormTest() {
-        String userName = "Ivan";
 
         registrationPage.openPage()
-                .setFirstName(userName)
-                .setLastName("Ivanov")
-                .setGender("Male")
+                .setFirstName(firstName)
+                .setLastName(lastName)
+                .setGender(gender)
                 .setNumber("")
                 .submitForm();
 
         registrationPage.verifyResultsModalAppearsNeg();
     }
+
+    ;
 }
+
+
 
