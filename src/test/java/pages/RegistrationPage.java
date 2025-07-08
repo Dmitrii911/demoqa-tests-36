@@ -22,7 +22,7 @@ public class RegistrationPage {
             pictureInput = $("#uploadPicture"),
             addressInput = $("#currentAddress"),
             stateInput = $("#state"),
-            cityInput = $("#city"),
+            cityInput = $("#city .css-1wy0on6"),
             submitTab = $("#submit");
 
 
