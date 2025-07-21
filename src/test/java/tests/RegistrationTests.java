@@ -8,7 +8,10 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.remote.DesiredCapabilities;
 
+
+import java.util.Map;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
@@ -22,6 +25,12 @@ public class RegistrationTests {
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.pageLoadStrategy = "eager"; // ускоренная загрузка страницы
 
+        DesiredCapabilities capabilities = new DesiredCapabilities();
+        capabilities.setCapability("selenoid:options", Map.<String, Object>of(
+                "enableVNC", true,
+                "enableVideo", true
+        ));
+        SelenideLogger.addListener("allure", new AllureSelenide());
     }
 
     @AfterEach
@@ -36,7 +45,7 @@ public class RegistrationTests {
     @Tag("demoqa")
     @Test
     void successfulFillFormTest() {
-        SelenideLogger.addListener("allure", new AllureSelenide());
+
         open("/automation-practice-form");
         //Убираем рекламу
         executeJavaScript("$('footer').remove();");
