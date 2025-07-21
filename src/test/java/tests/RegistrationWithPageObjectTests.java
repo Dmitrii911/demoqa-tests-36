@@ -2,7 +2,9 @@ package tests;
 
 import static data.TestDataGen.*;
 
+import com.codeborne.selenide.logevents.SelenideLogger;
 import data.SuitTestData;
+import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.Test;
 import pages.RegistrationPage;
 
@@ -12,6 +14,7 @@ public class RegistrationWithPageObjectTests extends TestBase {
 
     @Test
     void successfulFillFormTest() {
+        SelenideLogger.addListener("allure", new AllureSelenide());
 
         registrationPage.openPage()
                 .closeAd()
@@ -43,6 +46,7 @@ public class RegistrationWithPageObjectTests extends TestBase {
 
     @Test
     void successfulMinFormTest() {
+        SelenideLogger.addListener("allure", new AllureSelenide());
 
         registrationPage.openPage()
                 .setFirstName(data.firstName)
@@ -59,6 +63,7 @@ public class RegistrationWithPageObjectTests extends TestBase {
 
     @Test
     void negativeMinFormTest() {
+        SelenideLogger.addListener("allure", new AllureSelenide());
 
         registrationPage.openPage()
                 .setFirstName(data.firstName)
