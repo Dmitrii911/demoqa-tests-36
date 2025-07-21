@@ -25,11 +25,14 @@ public class RegistrationTests {
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.pageLoadStrategy = "eager"; // ускоренная загрузка страницы
 
+
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("selenoid:options", Map.<String, Object>of(
                 "enableVNC", true,
                 "enableVideo", true
         ));
+        Configuration.browserCapabilities = capabilities;
+
         SelenideLogger.addListener("allure", new AllureSelenide());
     }
 
