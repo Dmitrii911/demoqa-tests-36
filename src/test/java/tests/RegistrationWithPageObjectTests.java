@@ -5,9 +5,11 @@ import static data.TestDataGen.*;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import data.SuitTestData;
 import io.qameta.allure.selenide.AllureSelenide;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import pages.RegistrationPage;
 
+@Tag("demoqa")
 public class RegistrationWithPageObjectTests extends TestBase {
     SuitTestData data = new SuitTestData();
 
