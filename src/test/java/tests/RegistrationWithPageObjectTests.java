@@ -45,7 +45,7 @@ public class RegistrationWithPageObjectTests extends TestBase {
                 .verifyResult("Address", data.streetAddress)
                 .verifyResult("State and City", data.state + " " + data.city);
     }
-    @Tag("demoqa")
+
     @Test
     void successfulMinFormTest() {
         SelenideLogger.addListener("allure", new AllureSelenide());
