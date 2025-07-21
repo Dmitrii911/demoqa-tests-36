@@ -15,6 +15,7 @@ import static com.codeborne.selenide.Selenide.*;
 public class RegistrationTests {
     @BeforeAll
     static void basicBrowserSettings() {
+        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
         Configuration.browserSize = "1920x1080";
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.pageLoadStrategy = "eager"; // ускоренная загрузка страницы
