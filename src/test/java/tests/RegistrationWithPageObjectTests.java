@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import pages.RegistrationPage;
 
-@Tag("demoqa")
+
 public class RegistrationWithPageObjectTests extends TestBase {
     SuitTestData data = new SuitTestData();
 
@@ -45,7 +45,7 @@ public class RegistrationWithPageObjectTests extends TestBase {
                 .verifyResult("Address", data.streetAddress)
                 .verifyResult("State and City", data.state + " " + data.city);
     }
-
+    @Tag("demoqa")
     @Test
     void successfulMinFormTest() {
         SelenideLogger.addListener("allure", new AllureSelenide());
