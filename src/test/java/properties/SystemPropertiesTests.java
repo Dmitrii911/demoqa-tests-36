@@ -8,11 +8,11 @@ public class SystemPropertiesTests {
     @Test
     @Tag("property")
     void systemProperties4Test() {
-        String browser = System.getProperty("browser", "chrome");
+        String browser = System.getProperty("browser", "firefox");
 
         System.out.println(browser);
         // gradle property_test
-        // chrome
+        // firefox
 
         // gradle property_test -Dbrowser=firefox
         // firefox
