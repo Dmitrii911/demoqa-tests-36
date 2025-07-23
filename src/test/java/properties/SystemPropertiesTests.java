@@ -14,7 +14,7 @@ public class SystemPropertiesTests {
         // gradle property_test
         // firefox
 
-        // gradle property_test -Dbrowser=firefox
-        // firefox
+        // gradle property_test -Dbrowser=chrome
+        // chrome
     }
 }
